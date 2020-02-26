@@ -41,3 +41,4 @@ cmake-build-debug/cmake_install.cmake
 .idea/modules.xml
 .idea/misc.xml
 .idea/CSC340_CPP_Dictionary.iml
+.DS_Store

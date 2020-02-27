@@ -1,5 +1,11 @@
+//
+// Created by yuhua Wu on 2/27/20.
+//
+
+#include "TicTacToe.h"
 #include <iostream>
-<<<<<<< HEAD
+
+
 using namespace std;
 
 char square[10] = {'o','1','2','3','4','5','6','7','8','9'};
@@ -148,10 +154,8 @@ void board()
 /*******************************************************************
                 END OF PROJECT
 ********************************************************************/
-=======
 
-int main() {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
-}
->>>>>>> refs/remotes/origin/test
+//int main() {
+//    std::cout << "Hello, World!" << std::endl;
+//    return 0;
+//}

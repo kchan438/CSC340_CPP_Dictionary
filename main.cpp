@@ -4,6 +4,7 @@
 ///Spring 2020
 #include <iostream>
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <vector>
 
@@ -35,13 +36,24 @@ void readFile()
         exit(0);
     }
 
-    /*while(getline(fileIO, line))
+    while(getline(fileIO, line))
     {
         cout << line << endl;
-    }*/
+        //getInfo(fileIO, line);
+    }
 }
 
-void getInfo(ifstream file, string line, vector<string> wordData)
+void getInfo(ifstream file, vector<string> wordData)
 {
-    
+    string wordLine;
+    string pos;
+    string definition;
+
+    getline(file,wordLine);
+
+
+    /*while(getline(file,wordLine))
+    {
+
+    }*/
 }

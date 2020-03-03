@@ -11,20 +11,18 @@
 
 using namespace std;
 
-void readFile();
-void searchInterface(string str);
-void search(string str);
+void searchInterface(const string& phrase);
+void search(const string& phrase);
 
 int main()
 {
     readData readObj;
     readObj.readFile();
-    //readFile();
-    string searchWord;
-    cout << "----- DICTIONARY 340 C++ -----\n" << endl;
-    cout << "Search: ";
-    cin >> searchWord;
-    search(searchWord);
+    //string searchWord;
+    //cout << "----- DICTIONARY 340 C++ -----\n" << endl;
+    //cout << "Search: ";
+    //cin >> searchWord;
+    //search(searchWord);
     //searchInterface(searchWord);
     //findWord(searchWord);
     //cout << "|\n";
@@ -36,7 +34,7 @@ int main()
     return 0;
 }
 
-void getInfo(ifstream file, vector<string> wordData) {
+void getInfo(ifstream file, const vector<string>& wordData) {
     string wordLine;
     string pos;
     string definition;
@@ -50,7 +48,7 @@ void getInfo(ifstream file, vector<string> wordData) {
     }*/
 }
 
-void searchInterface(string phrase)
+void searchInterface(const string& phrase)
 {
     istringstream ss(phrase);
     vector<string> stringVector;
@@ -66,7 +64,7 @@ void searchInterface(string phrase)
 
 }
 
-void search(string phrase)
+void search(const string& phrase)
 {
     // Used to split string around spaces.
     istringstream ss(phrase);

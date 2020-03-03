@@ -5,6 +5,9 @@
 #include "readData.h"
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <sstream>
+
 using namespace std;
 
 readData::readData() = default; //constructor
@@ -29,11 +32,30 @@ void readData::readFile()
     cout << "Loading Data..." << endl;
     while(getline(fileIO, line))
     {
-        cout << line << endl;
+        //cout << line << endl;
+        readToken(line);
         //getInfo(fileIO, line);
     }
     cout << "Loading Completed..." << endl;
 
     cout << "! Closing data file... ./Data.CS.SFSU.txt" << endl;
     fileIO.close();
+}
+
+void readData::readToken(const string& line)
+{
+    string word = "";
+    for (auto x : line)
+    {
+        if (x == ' ')
+        {
+            cout << word << endl;
+            word = "";
+        }
+        else
+        {
+            word = word + x;
+        }
+    }
+    cout << word << endl;
 }

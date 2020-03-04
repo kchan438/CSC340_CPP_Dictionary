@@ -34,19 +34,6 @@ int main()
     return 0;
 }
 
-void getInfo(ifstream file, const vector<string>& wordData) {
-    string wordLine;
-    string pos;
-    string definition;
-
-    getline(file, wordLine);
-
-
-    /*while(getline(file,wordLine))
-    {
-
-    }*/
-}
 
 void searchInterface(const string& phrase)
 {

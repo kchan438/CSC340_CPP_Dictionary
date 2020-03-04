@@ -59,3 +59,32 @@ void readData::readToken(const string& line)
     }
     cout << word << endl;
 }
+
+void readData::getInfo(ifstream& file, vector<wordInfo>& wordData)
+{
+    string wordLine;
+    string word;
+    string pos;
+    string definition;
+
+    getline(file, wordLine);
+    stringstream string = stringstream(wordLine);   //puts the line we grabbed, into a stringstream so we can traverse through it
+    getline(file, word, '|');   //gets search word ending before '|' char
+    //gets POS word ending before ' ' char
+    //while there is a POS next after every definition.
+    while(getline(file,pos, ' '))
+    {
+        string.ignore(5,' ');
+        getline(file,definition, '|');
+        if(definition.back()=='\r')
+        {
+            definition.pop_back();
+        }
+        wordData.push_back(wordInfo{word, pos, definition});
+    }
+
+    /*while(getline(file,wordLine))
+    {
+
+    }*/
+}

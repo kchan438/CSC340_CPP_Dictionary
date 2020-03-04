@@ -3,12 +3,22 @@
 #define CSC340_CPP_DICTIONARY_READDATA_H
 
 #include <string>
+#include <vector>
 using namespace std;
+
+struct wordInfo
+{
+    string word;
+    string pos;
+    string definition;
+};
+
 class readData
 {
 public:
     readData();
     void readFile();
     static void readToken(const string& line);
+    void getInfo(ifstream& file, vector<wordInfo>& wordData);
 };
 #endif //CSC340_CPP_DICTIONARY_READDATA_H

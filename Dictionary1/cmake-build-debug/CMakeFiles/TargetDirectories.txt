@@ -1,0 +1,3 @@
+/Users/yuhuawu/CLionProjects/Dictionary1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/yuhuawu/CLionProjects/Dictionary1/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/yuhuawu/CLionProjects/Dictionary1/cmake-build-debug/CMakeFiles/Dictionary1.dir

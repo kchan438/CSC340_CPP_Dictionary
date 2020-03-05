@@ -71,17 +71,17 @@ void readData::getInfo(ifstream& file, vector<wordInfo>& wordData)
     getline(string, word, '|');   //gets search word ending before '|' char
     //gets POS word ending before ' ' char
     //while there is a POS next after every definition.
-    while(getline(string,pos, ' '))
+    while(getline(string,pos, ' ')) //this while loop will get a new POS and definition from each word until the last char is '\r'
     {
         string.ignore(5,' ');   //skips the arrow in the beginning
         getline(string,definition, '|'); //gets the definition of the POS
         if(definition.back()=='\r')
         {
-            definition.pop_back();  //because we dont want the return carriage processed
+            definition.pop_back();  //because we don't want the return carriage processed
         }
-        readData::wordData.push_back(wordInfo{word, pos, definition});
+        readData::wordData.push_back(wordInfo{word, pos, definition});  //then push the struct into the vector wordInfo for processing later
     }
-    cout << "word: " << word << " [" << pos << "]: " << definition << endl;
+    //cout << "word: " << word << " [" << pos << "]: " << definition << endl;
 }
 
 void printString(const wordInfo& wordData)

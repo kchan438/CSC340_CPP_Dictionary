@@ -12,7 +12,7 @@ using namespace std;
 
 readData::readData() = default; //constructor
 
-void readData::readFile()
+vector<wordInfo> readData::readFile()
 {
 
     ifstream fileIO;
@@ -39,6 +39,7 @@ void readData::readFile()
 
     cout << "! Closing data file... ./Data.CS.SFSU.txt" << endl;
     fileIO.close();
+    return wordData;
 }
 
 void readData::readToken(const string& line)

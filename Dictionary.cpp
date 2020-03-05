@@ -27,42 +27,45 @@ void Dictionary::initialize()
     //<word,definition>
     //will need to find a way to pass over and read data to store each word in each map
     readData readobj;
-    vector<wordInfo> dictionaryWordData = readobj.wordData;
-    adjective.insert
-    for(int i = 0; i < dictionaryWordData.size()-1; i++)
+    vector<wordInfo> dictionaryWordData = readobj.readFile();
+    for(int i = 0; i < dictionaryWordData.size(); i++)
     {
         if(dictionaryWordData.at(i).pos == "adjective")
         {
-            adjective.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+            adjective[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
         }
         else if(dictionaryWordData.at(i).pos == "adverb")
         {
-            adverb.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+            adverb[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
         }
         else if(dictionaryWordData.at(i).pos == "conjunction")
         {
-            conjunction.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+            conjunction[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
         }
         else if(dictionaryWordData.at(i).pos == "interjection")
         {
-            interjection.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+            interjection[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
         }
         else if(dictionaryWordData.at(i).pos == "noun")
         {
-            noun.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+            noun[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+        }
+        else if(dictionaryWordData.at(i).pos == "preposition")
+        {
+            preposition[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
         }
         else if(dictionaryWordData.at(i).pos == "pronoun")
         {
-            pronoun.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+            pronoun[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
         }
         else if(dictionaryWordData.at(i).pos == "verb")
         {
-            verb.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+            verb[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
         }
 
-        cout << adverb.at("placeholder") << endl;
+        //cout << adverb.at("placeholder") << endl;
     }
-
+        cout << noun["placeholder"] << endl;
 }
 
 void search(const string& phrase)

@@ -17,7 +17,7 @@ class readData
 {
 public:
     readData();
-    void readFile();
+    vector<struct wordInfo> readFile();
     static void readToken(const string& line);
     void getInfo(ifstream& file, vector<wordInfo>& wordData);
     vector<wordInfo> wordData;

@@ -1,7 +1,10 @@
-///Kevin Chan
-///SFSU ID: 918468621
+///CSC-340-02
+///Kevin Chan SFSU ID: 918468621
+///Teammate: Yuhua Hui SFSU ID:
+///Assignment Number: 02
 ///CSC-340 Programming Methodology Assignment 2 Part C - C++ Dictionary
 ///Spring 2020
+
 #include <iostream>
 #include <fstream>
 #include <sstream>
@@ -11,9 +14,6 @@
 #include "Dictionary.h"
 
 using namespace std;
-
-void searchInterface(const string& phrase);
-void search(const string& phrase);
 
 int main()
 {
@@ -37,19 +37,3 @@ int main()
     return 0;
 }
 
-
-void searchInterface(const string& phrase)
-{
-    istringstream ss(phrase);
-    vector<string> stringVector;
-    for(string s; ss >> s;)
-    {
-        stringVector.push_back(s);
-    }
-    cout << " size " << stringVector.size();
-    for(int i=0; i<stringVector.size(); i++)
-    {
-        cout << stringVector.at(i) << " ";
-    }
-
-}

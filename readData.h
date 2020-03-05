@@ -20,5 +20,6 @@ public:
     void readFile();
     static void readToken(const string& line);
     void getInfo(ifstream& file, vector<wordInfo>& wordData);
+    vector<wordInfo> wordData;
 };
 #endif //CSC340_CPP_DICTIONARY_READDATA_H

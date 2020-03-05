@@ -15,7 +15,7 @@ readData::readData() = default; //constructor
 void readData::readFile()
 {
 
-    fstream fileIO;
+    ifstream fileIO;
     string line;
     string pos;
     string defintion;
@@ -33,8 +33,8 @@ void readData::readFile()
     while(getline(fileIO, line))
     {
         //cout << line << endl;
-        readToken(line);
-        //getInfo(fileIO, line);
+        //readToken(line);
+        getInfo(fileIO, wordData);
     }
     cout << "Loading Completed..." << endl;
 
@@ -80,11 +80,12 @@ void readData::getInfo(ifstream& file, vector<wordInfo>& wordData)
         {
             definition.pop_back();
         }
-        wordData.push_back(wordInfo{word, pos, definition});
+        readData::wordData.push_back(wordInfo{word, pos, definition});
+    }
+    vector<wordInfo> vector1 = readData::wordData;
+    for(int i=0; i < vector1.size();i++)
+    {
+//        cout << vector1.at(i) << endl;
     }
 
-    /*while(getline(file,wordLine))
-    {
-
-    }*/
 }

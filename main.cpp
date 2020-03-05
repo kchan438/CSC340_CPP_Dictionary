@@ -50,22 +50,3 @@ void searchInterface(const string& phrase)
     }
 
 }
-
-void search(const string& phrase)
-{
-    // Used to split string around spaces.
-    istringstream ss(phrase);
-    vector<string> stringArr(3);
-    int counter = 0;
-    while(getline(ss,stringArr[counter], ' '))
-    {
-        counter++;
-    }
-
-    if(counter == 0 || counter > 3)
-    {
-        cout << "must be between 1 and 3 words" << endl;
-
-    }
-
-}

@@ -30,9 +30,8 @@ void readData::readFile()
     }
 
     cout << "Loading Data..." << endl;
-    while(getline(fileIO, line))
+    while(!fileIO.eof())
     {
-        //cout << line << endl;
         //readToken(line);
         getInfo(fileIO, wordData);
     }
@@ -69,23 +68,23 @@ void readData::getInfo(ifstream& file, vector<wordInfo>& wordData)
 
     getline(file, wordLine);
     stringstream string = stringstream(wordLine);   //puts the line we grabbed, into a stringstream so we can traverse through it
-    getline(file, word, '|');   //gets search word ending before '|' char
+    getline(string, word, '|');   //gets search word ending before '|' char
     //gets POS word ending before ' ' char
     //while there is a POS next after every definition.
-    while(getline(file,pos, ' '))
+    while(getline(string,pos, ' '))
     {
-        string.ignore(5,' ');
-        getline(file,definition, '|');
+        string.ignore(5,' ');   //skips the arrow in the beginning
+        getline(string,definition, '|'); //gets the definition of the POS
         if(definition.back()=='\r')
         {
-            definition.pop_back();
+            definition.pop_back();  //because we dont want the return carriage processed
         }
         readData::wordData.push_back(wordInfo{word, pos, definition});
     }
-    vector<wordInfo> vector1 = readData::wordData;
-    for(int i=0; i < vector1.size();i++)
-    {
-//        cout << vector1.at(i) << endl;
-    }
+    cout << "word: " << word << " [" << pos << "]: " << definition << endl;
+}
 
+void printString(const wordInfo& wordData)
+{
+    cout << wordData.word << " [" << wordData.pos << "]: " << wordData.definition << endl;
 }

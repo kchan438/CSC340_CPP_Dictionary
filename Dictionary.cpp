@@ -4,19 +4,20 @@
 #include "Dictionary.h"
 #include "readData.h"
 #include <map>
+#include <unordered_map>
 #include <sstream>
 #include <iostream>
 using namespace std;
 Dictionary::Dictionary()
 {
-    map<string,string> adjective;
+    /*map<string,string> adjective;
     map<string,string> adverb;
     map<string,string> conjunction;
     map<string,string> interjection;
     map<string,string> noun;
     map<string,string> preposition;
     map<string,string> pronoun;
-    map<string,string> verb;
+    map<string,string> verb;*/
 }
 
 //this is where we will create dictionary hashmaps and store data here
@@ -27,6 +28,40 @@ void Dictionary::initialize()
     //will need to find a way to pass over and read data to store each word in each map
     readData readobj;
     vector<wordInfo> dictionaryWordData = readobj.wordData;
+    adjective.insert
+    for(int i = 0; i < dictionaryWordData.size()-1; i++)
+    {
+        if(dictionaryWordData.at(i).pos == "adjective")
+        {
+            adjective.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+        }
+        else if(dictionaryWordData.at(i).pos == "adverb")
+        {
+            adverb.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+        }
+        else if(dictionaryWordData.at(i).pos == "conjunction")
+        {
+            conjunction.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+        }
+        else if(dictionaryWordData.at(i).pos == "interjection")
+        {
+            interjection.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+        }
+        else if(dictionaryWordData.at(i).pos == "noun")
+        {
+            noun.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+        }
+        else if(dictionaryWordData.at(i).pos == "pronoun")
+        {
+            pronoun.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+        }
+        else if(dictionaryWordData.at(i).pos == "verb")
+        {
+            verb.insert(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition);
+        }
+
+        cout << adverb.at("placeholder") << endl;
+    }
 
 }
 

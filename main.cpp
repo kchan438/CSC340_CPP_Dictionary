@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "readData.h"
+#include "Dictionary.h"
 
 using namespace std;
 
@@ -18,6 +19,8 @@ int main()
 {
     readData readObj;
     readObj.readFile();
+    Dictionary diction;
+    diction.initialize();
     //string searchWord;
     //cout << "----- DICTIONARY 340 C++ -----\n" << endl;
     //cout << "Search: ";

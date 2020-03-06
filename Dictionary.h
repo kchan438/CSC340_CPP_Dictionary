@@ -16,18 +16,19 @@ public:
     void search(const string& phrase);
     void oneArg(const string& word);
     void twoArg(const string& word, const string& pos);
-    void threeArg(const string& word, const string& pos, bool distinct);
+    void threeArg(const string& word, const string& pos);
 private:
-    multimap<string,string> adjective;
-    multimap<string,string> adverb;
-    multimap<string,string> conjunction;
-    multimap<string,string> interjection;
-    multimap<string,string> noun;
-    multimap<string,string> preposition;
-    multimap<string,string> pronoun;
-    multimap<string,string> verb;
-    multimap<string,string> database;
     unordered_set<string> posList;
+
+    multimap<string, wordInfo> dictionary;
+    multimap<string, wordInfo> adjective1;
+    multimap<string, wordInfo> adverb1;
+    multimap<string, wordInfo> conjunction1;
+    multimap<string, wordInfo> interjection1;
+    multimap<string, wordInfo> noun1;
+    multimap<string, wordInfo> preposition1;
+    multimap<string, wordInfo> pronoun1;
+    multimap<string, wordInfo> verb1;
 };
 
 #endif //CSC340_CPP_DICTIONARY_DICTIONARY_H

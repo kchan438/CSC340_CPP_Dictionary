@@ -6,6 +6,7 @@
 #define CSC340_CPP_DICTIONARY_DICTIONARY_H
 #include "readData.h"
 #include <map>
+#include <unordered_set>
 
 class Dictionary
 {
@@ -15,7 +16,7 @@ public:
     void search(const string& phrase);
     void oneArg(const string& word);
     void twoArg(const string& word, const string& pos);
-    void threeArg(const string& word, const string& pos, const string& distinct);
+    void threeArg(const string& word, const string& pos, bool distinct);
 private:
     multimap<string,string> adjective;
     multimap<string,string> adverb;
@@ -25,6 +26,8 @@ private:
     multimap<string,string> preposition;
     multimap<string,string> pronoun;
     multimap<string,string> verb;
+    multimap<string,string> database;
+    unordered_set<string> posList;
 };
 
 #endif //CSC340_CPP_DICTIONARY_DICTIONARY_H

@@ -21,10 +21,8 @@ int main()
     cout << "Search: ";
     getline(cin, string);
     transform(string.begin(),string.end(),string.begin(), ::tolower); //converts string into lowercase
-    while(string!= "!q" || string!= "!Q")
-    {
-        diction.search(string);
-    }
+    diction.search(string);
+
     return 0;
 }
 

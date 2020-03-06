@@ -92,7 +92,6 @@ void Dictionary::search(const string& phrase)
 
 void Dictionary::oneArg(const string& word)
 {
-    cout << "|\n";
     for(auto& elm: adjective1) { if(elm.first == word) { cout << elm.first << "[adjective]:" << elm.second.definition << endl; } }
     for(auto& elm: adverb1) { if(elm.first == word) { cout << elm.first << "[adverb]:" << elm.second.definition << endl; } }
     for(auto& elm: conjunction1) { if(elm.first == word) { cout << elm.first << "[conjunction]:" << elm.second.definition << endl; } }
@@ -101,7 +100,6 @@ void Dictionary::oneArg(const string& word)
     for(auto& elm: preposition1) { if(elm.first == word) { cout << elm.first << "[preposition]:" << elm.second.definition << endl; } }
     for(auto& elm: pronoun1) { if(elm.first == word) { cout << elm.first << "[pronoun]:" << elm.second.definition << endl; } }
     for(auto& elm: verb1) { if(elm.first == word) { cout << elm.first << "[verb]:" << elm.second.definition << endl; } }
-    cout << "|\n";
 }
 
 void Dictionary::twoArg(const string& word, const string& pos)
@@ -168,7 +166,6 @@ void Dictionary::twoArg(const string& word, const string& pos)
         for(auto& elm: preposition1) { if(elm.first == word && preposition1.count(elm.first) >= 2) { cout << elm.first << "[preposition]:" << elm.second.definition << endl; } }
         for(auto& elm: pronoun1) { if(elm.first == word && pronoun1.count(elm.first) >= 2) { cout << elm.first << "[pronoun]:" << elm.second.definition << endl; } }
         for(auto& elm: verb1) { if(elm.first == word && verb1.count(elm.first) >= 2) { cout << elm.first << "[verb]:" << elm.second.definition << endl; } }
-        //for(auto& elm: dictionary) {if(elm.first == word && elm.second.pos == "adjective") { cout << elm.first << "[adjective]:" << elm.second.definition << endl; } }
     }
 }
 
@@ -176,7 +173,7 @@ void Dictionary::threeArg(const string& word, const string& pos)
 {
     for(auto it = dictionary.begin(),end = dictionary.end(); it!=end; it = dictionary.upper_bound(it->first))
     {
-        if(it->first == word && it->second.pos == pos)
+        if(it->first == word /*&& it->second.pos == pos*/)
         {
             cout << it->first << "[" << it->second.pos << "]" << it->second.definition << endl;
         }

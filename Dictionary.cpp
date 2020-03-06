@@ -28,6 +28,41 @@ void Dictionary::initialize()
     readData readobj;
     vector<wordInfo> dictionaryWordData = readobj.readFile();
     //this for loop should initialize each multimap with the duplicate POS definition
+    for(int i = 0; i < dictionaryWordData.size(); i++)
+    {
+        if(dictionaryWordData.at(i).pos == "adjective")
+        {
+            adjective.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+        if(dictionaryWordData.at(i).pos == "adverb")
+        {
+            adverb.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+        if(dictionaryWordData.at(i).pos == "conjunction")
+        {
+            conjunction.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+        if(dictionaryWordData.at(i).pos == "interjection")
+        {
+            interjection.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+        if(dictionaryWordData.at(i).pos == "noun")
+        {
+            noun.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+        if(dictionaryWordData.at(i).pos == "preposition")
+        {
+            preposition.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+        if(dictionaryWordData.at(i).pos == "pronoun")
+        {
+            pronoun.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+        if(dictionaryWordData.at(i).pos == "verb")
+        {
+            verb.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
+        }
+    }
 
     for(auto iterator = dictionaryWordData.begin(); iterator!=dictionaryWordData.end(); iterator++)
     {
@@ -158,22 +193,23 @@ void Dictionary::twoArg(const string& word, const string& pos)
     }
     else if(!(pos == "distinct"))
     {
-        for(auto& elm: adjective1) { if(elm.first == word && adjective1.count(elm.first) >= 2) { cout << elm.first << "[adjective]:" << elm.second.definition << endl; } }
-        for(auto& elm: adverb1) { if(elm.first == word && adverb1.count(elm.first) >= 2) { cout << elm.first << "[adverb]:" << elm.second.definition << endl; } }
-        for(auto& elm: conjunction1) { if(elm.first == word && conjunction1.count(elm.first) >= 2) { cout << elm.first << "[conjunction]:" << elm.second.definition << endl; } }
-        for(auto& elm: interjection1) { if(elm.first == word && interjection1.count(elm.first) >= 2) { cout << elm.first << "[interjection]:" << elm.second.definition << endl; } }
-        for(auto& elm: noun1) { if(elm.first == word && noun1.count(elm.first) >= 2) { cout << elm.first << "[noun]:" << elm.second.definition << endl; } }
-        for(auto& elm: preposition1) { if(elm.first == word && preposition1.count(elm.first) >= 2) { cout << elm.first << "[preposition]:" << elm.second.definition << endl; } }
-        for(auto& elm: pronoun1) { if(elm.first == word && pronoun1.count(elm.first) >= 2) { cout << elm.first << "[pronoun]:" << elm.second.definition << endl; } }
-        for(auto& elm: verb1) { if(elm.first == word && verb1.count(elm.first) >= 2) { cout << elm.first << "[verb]:" << elm.second.definition << endl; } }
+        for(auto& elm: adjective) { if(elm.first == word && pos == "adjective") { cout << elm.first << "[adjective]:" << elm.second << endl; } }
+        for(auto& elm: adverb) { if(elm.first == word && pos == "adverb") { cout << elm.first << "[adverb]:" << elm.second << endl; } }
+        for(auto& elm: conjunction) { if(elm.first == word && pos == "conjunction") { cout << elm.first << "[conjunction]:" << elm.second << endl; } }
+        for(auto& elm: interjection) { if(elm.first == word && pos == "interjection") { cout << elm.first << "[interjection]:" << elm.second << endl; } }
+        for(auto& elm: noun) { if(elm.first == word && pos == "noun") { cout << elm.first << "[noun]:" << elm.second << endl; } }
+        for(auto& elm: preposition) { if(elm.first == word && pos == "preposition") { cout << elm.first << "[preposition]:" << elm.second << endl; } }
+        for(auto& elm: pronoun) { if(elm.first == word && pos == "pronoun") { cout << elm.first << "[pronoun]:" << elm.second << endl; } }
+        for(auto& elm: verb) { if(elm.first == word && pos == "verb") { cout << elm.first << "[verb]:" << elm.second << endl; } }
     }
 }
 
 void Dictionary::threeArg(const string& word, const string& pos)
 {
+    cout << "word: " << word << " and pos: " << pos << endl;
     for(auto it = dictionary.begin(),end = dictionary.end(); it!=end; it = dictionary.upper_bound(it->first))
     {
-        if(it->first == word /*&& it->second.pos == pos*/)
+        if(it->first == word && it->second.pos == pos)
         {
             cout << it->first << "[" << it->second.pos << "]" << it->second.definition << endl;
         }

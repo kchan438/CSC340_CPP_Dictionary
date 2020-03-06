@@ -20,6 +20,15 @@ public:
 private:
     unordered_set<string> posList;
 
+    multimap<string, string> adjective;
+    multimap<string, string> adverb;
+    multimap<string, string> conjunction;
+    multimap<string, string> interjection;
+    multimap<string, string> noun;
+    multimap<string, string> preposition;
+    multimap<string, string> pronoun;
+    multimap<string, string> verb;
+
     multimap<string, wordInfo> dictionary;
     multimap<string, wordInfo> adjective1;
     multimap<string, wordInfo> adverb1;

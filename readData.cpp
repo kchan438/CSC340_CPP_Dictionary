@@ -42,24 +42,6 @@ vector<wordInfo> readData::readFile()
     return wordData;
 }
 
-void readData::readToken(const string& line)
-{
-    string word = "";
-    for (auto x : line)
-    {
-        if (x == ' ')
-        {
-            cout << word << endl;
-            word = "";
-        }
-        else
-        {
-            word = word + x;
-        }
-    }
-    cout << word << endl;
-}
-
 void readData::getInfo(ifstream& file, vector<wordInfo>& wordData)
 {
     string wordLine;

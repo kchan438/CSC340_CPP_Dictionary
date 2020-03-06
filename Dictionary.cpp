@@ -4,7 +4,6 @@
 #include "Dictionary.h"
 #include "readData.h"
 #include <map>
-#include <unordered_map>
 #include <sstream>
 #include <iostream>
 using namespace std;
@@ -67,13 +66,13 @@ void Dictionary::initialize()
 
         //cout << adverb.at("placeholder") << endl;
     }
-    for(auto& elm: adjective)
+    /*for(auto& elm: adjective)
     {
         cout << elm.first << "[adjective]:" << elm.second << endl;
-    }
+    }*/
 }
 
-void search(const string& phrase)
+void Dictionary::search(const string& phrase)
 {
     // Used to split string around spaces.
     stringstream ss(phrase);
@@ -82,25 +81,64 @@ void search(const string& phrase)
     string word;
     string pos;
 
-    while(getline(ss,stringVector[counter], ' '))
+    /*istream_iterator<string> begin(ss);
+    istream_iterator<string> end;
+    vector<string> stringVector(begin,end);
+    copy(stringVector.begin(),stringVector.end(),ostream_iterator<std::string>(std::cout, "\n"));*/
+
+    while(getline(ss,word, ' '))
     {
+        stringVector.push_back(word);
         counter++;
     }
+
+    //word = stringVector[0];
+    //cout << "word " << word;
+
     if(counter == 0 || counter > 3)
     {
         cout << "Must be between 1 and 3 words" << endl;
     }
-    if(stringVector[0] == "!q")
+    if(counter == 1)
     {
-        cout << "-----THANK YOU-----" << endl;
-        exit(0);
+        oneArg(word);
+    }
+    if(counter == 2 && stringVector[1] == "distinct")
+    {
+        twoArg(word,"distinct");
+    }
+    if(counter == 3 && stringVector[2] == "distinct")
+    {
+        threeArg(word,pos, "distinct");
     }
     if(stringVector[1] == "oops")
     {
         cout << "2nd argument must be a part of speech or \"distinct\"" << endl;
     }
-    if(counter == 1)
+    if(stringVector[0] == "!q" || stringVector[0] == "!Q" )
     {
-
+        cout << "-----THANK YOU-----" << endl;
+        exit(0);
     }
+}
+
+void Dictionary::oneArg(const string& word)
+{
+    typedef multimap<string, string>::iterator MMAPIterator;
+    pair<MMAPIterator, MMAPIterator> result = adjective.equal_range(word);
+
+    for(MMAPIterator it = result.first; it!=result.second; it++)
+    {
+        cout << it->first << "[POS]" << it->second << endl;
+    }
+}
+
+void Dictionary::twoArg(const string& word, const string& pos)
+{
+
+}
+
+void Dictionary::threeArg(const string& word, const string& pos, const string& distinct)
+{
+
 }

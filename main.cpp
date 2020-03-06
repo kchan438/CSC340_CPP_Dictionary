@@ -17,8 +17,12 @@ using namespace std;
 
 int main()
 {
+    string string;
     Dictionary diction;
     diction.initialize();
+    cout << "search: ";
+    getline(cin, string);
+    diction.search(string);
     //string searchWord;
     //cout << "----- DICTIONARY 340 C++ -----\n" << endl;
     //cout << "Search: ";

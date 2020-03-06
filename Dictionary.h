@@ -14,7 +14,8 @@ public:
     void initialize();
     void search(const string& phrase);
 private:
-    map<string,string> adjective;
+    //map<string,string> adjective;
+    multimap<string,string> adjective;
     map<string,string> adverb;
     map<string,string> conjunction;
     map<string,string> interjection;

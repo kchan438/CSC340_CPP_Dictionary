@@ -17,8 +17,6 @@ using namespace std;
 
 int main()
 {
-    readData readObj;
-    readObj.readFile();
     Dictionary diction;
     diction.initialize();
     //string searchWord;

@@ -28,44 +28,49 @@ void Dictionary::initialize()
     //will need to find a way to pass over and read data to store each word in each map
     readData readobj;
     vector<wordInfo> dictionaryWordData = readobj.readFile();
+    //this for loop should initialize each multimap with the duplicate POS definitio
     for(int i = 0; i < dictionaryWordData.size(); i++)
     {
         if(dictionaryWordData.at(i).pos == "adjective")
         {
-            adjective[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            //adjective[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            adjective.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
         else if(dictionaryWordData.at(i).pos == "adverb")
         {
-            adverb[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            adverb.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
         else if(dictionaryWordData.at(i).pos == "conjunction")
         {
-            conjunction[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            conjunction.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
         else if(dictionaryWordData.at(i).pos == "interjection")
         {
-            interjection[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            interjection.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
         else if(dictionaryWordData.at(i).pos == "noun")
         {
-            noun[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            noun.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
         else if(dictionaryWordData.at(i).pos == "preposition")
         {
-            preposition[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            preposition.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
         else if(dictionaryWordData.at(i).pos == "pronoun")
         {
-            pronoun[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            pronoun.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
         else if(dictionaryWordData.at(i).pos == "verb")
         {
-            verb[dictionaryWordData.at(i).word] = dictionaryWordData.at(i).definition;
+            verb.insert(make_pair(dictionaryWordData.at(i).word, dictionaryWordData.at(i).definition));
         }
 
         //cout << adverb.at("placeholder") << endl;
     }
-        cout << noun["placeholder"] << endl;
+    for(auto& elm: adjective)
+    {
+        cout << elm.first << "[adjective]:" << elm.second << endl;
+    }
 }
 
 void search(const string& phrase)

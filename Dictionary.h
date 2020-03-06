@@ -17,7 +17,6 @@ public:
     void twoArg(const string& word, const string& pos);
     void threeArg(const string& word, const string& pos, const string& distinct);
 private:
-    //map<string,string> adjective;
     multimap<string,string> adjective;
     multimap<string,string> adverb;
     multimap<string,string> conjunction;

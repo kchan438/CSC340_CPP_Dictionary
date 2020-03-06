@@ -6,10 +6,7 @@
 ///Spring 2020
 
 #include <iostream>
-#include <fstream>
-#include <sstream>
 #include <string>
-#include <vector>
 #include "readData.h"
 #include "Dictionary.h"
 
@@ -20,22 +17,14 @@ int main()
     string string;
     Dictionary diction;
     diction.initialize();
-    cout << "search: ";
+    cout << "----- DICTIONARY 340 C++ -----" << endl;
+    cout << "Search: ";
     getline(cin, string);
-    diction.search(string);
-    //string searchWord;
-    //cout << "----- DICTIONARY 340 C++ -----\n" << endl;
-    //cout << "Search: ";
-    //cin >> searchWord;
-    //search(searchWord);
-    //searchInterface(searchWord);
-    //findWord(searchWord);
-    //cout << "|\n";
-    //while loop for searching dictionary
-    //cout << "|\n";
-
-
-
+    transform(string.begin(),string.end(),string.begin(), ::tolower); //converts string into lowercase
+    while(string!= "!q" || string!= "!Q")
+    {
+        diction.search(string);
+    }
     return 0;
 }
 

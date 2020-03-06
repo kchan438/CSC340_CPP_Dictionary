@@ -7,19 +7,9 @@
 #include <sstream>
 #include <iostream>
 using namespace std;
-Dictionary::Dictionary()
-{
-    /*map<string,string> adjective;
-    map<string,string> adverb;
-    map<string,string> conjunction;
-    map<string,string> interjection;
-    map<string,string> noun;
-    map<string,string> preposition;
-    map<string,string> pronoun;
-    map<string,string> verb;*/
-}
+Dictionary::Dictionary() = default;
 
-//this is where we will create dictionary hashmaps and store data here
+//this is where we will create dictionary multimaps and store data here
 void Dictionary::initialize()
 {
     //will have separate maps organized by POS.
@@ -70,6 +60,7 @@ void Dictionary::initialize()
     {
         cout << elm.first << "[adjective]:" << elm.second << endl;
     }*/
+    //cout << adjective.find("placeholder") << endl;
 }
 
 void Dictionary::search(const string& phrase)
@@ -81,19 +72,11 @@ void Dictionary::search(const string& phrase)
     string word;
     string pos;
 
-    /*istream_iterator<string> begin(ss);
-    istream_iterator<string> end;
-    vector<string> stringVector(begin,end);
-    copy(stringVector.begin(),stringVector.end(),ostream_iterator<std::string>(std::cout, "\n"));*/
-
     while(getline(ss,word, ' '))
     {
         stringVector.push_back(word);
         counter++;
     }
-
-    //word = stringVector[0];
-    //cout << "word " << word;
 
     if(counter == 0 || counter > 3)
     {
@@ -103,7 +86,11 @@ void Dictionary::search(const string& phrase)
     {
         oneArg(word);
     }
-    if(counter == 2 && stringVector[1] == "distinct")
+    if(counter == 2)
+    {
+        twoArg(word,pos);
+    }
+    else if(counter == 2 && stringVector[1] == "distinct")
     {
         twoArg(word,"distinct");
     }
@@ -124,13 +111,15 @@ void Dictionary::search(const string& phrase)
 
 void Dictionary::oneArg(const string& word)
 {
-    typedef multimap<string, string>::iterator MMAPIterator;
+    /*typedef multimap<string, string>::iterator MMAPIterator;
     pair<MMAPIterator, MMAPIterator> result = adjective.equal_range(word);
 
     for(MMAPIterator it = result.first; it!=result.second; it++)
     {
         cout << it->first << "[POS]" << it->second << endl;
-    }
+    }*/
+
+    for(auto& elm: adjective) { if(elm.first == "placeholder") { cout << elm.first << "[adjective]:" << elm.second << endl; } }
 }
 
 void Dictionary::twoArg(const string& word, const string& pos)

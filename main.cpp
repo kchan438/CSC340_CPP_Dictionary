@@ -1,7 +1,8 @@
-///CSC-340-02
+///CSC-340-02 "TAC"
 ///Kevin Chan SFSU ID: 918468621
-///Teammate: Yuhua Hui SFSU ID:
+///Teammate: Yuhua Hui SFSU ID: 918665701
 ///Assignment Number: 02
+///Assignment Due Date & Time: March 6 Friday, 2020 @ 11:55PM
 ///CSC-340 Programming Methodology Assignment 2 Part C - C++ Dictionary
 ///Spring 2020
 

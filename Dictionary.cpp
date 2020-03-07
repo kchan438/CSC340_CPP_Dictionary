@@ -210,7 +210,6 @@ void Dictionary::twoArg(const string& word, const string& pos)
 
 void Dictionary::threeArg(const string& word, const string& pos)
 {
-    cout << "word: " << word << " and pos: " << pos << endl;
     int duplicateCounter = 0;
     for(auto it = dictionary.begin(),end = dictionary.end(); it!=end; it++)
     {

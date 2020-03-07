@@ -18,11 +18,14 @@ int main()
     Dictionary diction;
     diction.initialize();
     cout << "----- DICTIONARY 340 C++ -----" << endl;
-    cout << "Search: ";
-    getline(cin, string);
-    transform(string.begin(),string.end(),string.begin(), ::tolower); //converts string into lowercase
-    diction.search(string);
-
+    while(true)
+    {
+        cout << "Search: ";
+        getline(cin, string);
+        transform(string.begin(), string.end(), string.begin(), ::tolower); //converts string into lowercase
+        diction.search(string);
+        if(string == "!q" || string == "!Q") { exit(0); }
+    }
     return 0;
 }
 

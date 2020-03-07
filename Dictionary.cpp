@@ -135,11 +135,7 @@ void Dictionary::oneArg(const string& word)
     for(auto& elm: preposition1) { if(elm.first == word) { cout << elm.first << "[preposition]:" << elm.second.definition << endl; } }
     for(auto& elm: pronoun1) { if(elm.first == word) { cout << elm.first << "[pronoun]:" << elm.second.definition << endl; } }
     for(auto& elm: verb1) { if(elm.first == word) { cout << elm.first << "[verb]:" << elm.second.definition << endl; } }
-
-    if(dictionary.find(word) == dictionary.end())
-    {
-        cout << "<Not Found>" << endl;
-    }
+    if(dictionary.find(word) == dictionary.end()) { cout << "<Not Found>" << endl; }
 }
 
 void Dictionary::twoArg(const string& word, const string& pos)
@@ -206,24 +202,25 @@ void Dictionary::twoArg(const string& word, const string& pos)
         for(auto& elm: preposition) { if(elm.first == word && pos == "preposition") { cout << elm.first << "[preposition]:" << elm.second << endl; } }
         for(auto& elm: pronoun) { if(elm.first == word && pos == "pronoun") { cout << elm.first << "[pronoun]:" << elm.second << endl; } }
         for(auto& elm: verb) { if(elm.first == word && pos == "verb") { cout << elm.first << "[verb]:" << elm.second << endl; } }
-
         int posCounter = 0;
         for(auto& elm:  posList) { if(pos != elm) { posCounter++; } }
-        if(posCounter == posList.size()) { cout << "<2nd argument must be a part of speech or \"distinct\">" << endl; posCounter=0; }
+        if(posCounter == posList.size()) { cout << "<2nd argument must be a part of speech or \"distinct\">" << endl; }
     }
 }
 
 void Dictionary::threeArg(const string& word, const string& pos)
 {
     cout << "word: " << word << " and pos: " << pos << endl;
-    for(auto it = dictionary.begin(),end = dictionary.end(); it!=end; it = dictionary.upper_bound(it->first))
+    int duplicateCounter = 0;
+    for(auto it = dictionary.begin(),end = dictionary.end(); it!=end; it++)
     {
-        if(it->first == word && it->second.pos == pos)
+        if(it->first == word && it->second.pos == pos && duplicateCounter<1)
         {
             cout << it->first << "[" << it->second.pos << "]" << it->second.definition << endl;
+            duplicateCounter++;
         }
     }
     int posCounter = 0;
     for(auto& elm:  posList) { if(pos != elm) { posCounter++; } }
-    if(posCounter == posList.size()) { cout << "<2nd argument must be a part of speech or \"distinct\">" << endl; posCounter=0; }
+    if(posCounter == posList.size()) { cout << "<2nd argument must be a part of speech or \"distinct\">" << endl; }
 }

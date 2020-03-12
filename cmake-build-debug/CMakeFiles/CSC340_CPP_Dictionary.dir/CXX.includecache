@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/Dictionary.cpp
+Dictionary.h
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/Dictionary.h
+readData.h
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/readData.h
+map
+-
+sstream
+-
+iostream
+-
+
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/Dictionary.h
+readData.h
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/readData.h
+map
+-
+unordered_set
+-
+
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/readData.h
+string
+-
+vector
+-
+

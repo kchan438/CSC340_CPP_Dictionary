@@ -1,0 +1,3 @@
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/kevinchan/Documents/GitHub/CSC340_CPP_Dictionary/cmake-build-debug/CMakeFiles/CSC340_CPP_Dictionary.dir
